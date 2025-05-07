@@ -47,7 +47,7 @@ const Header = () => {
             Profil
           </Link>
 
-          <Link href="/customize/outfits" className={`flex items-center px-4 py-2 rounded-lg hover:bg-gray-100 ${isActive("/my-tiger") ? "font-bold text-black" : "text-gray-700"}`}>
+          <Link href="/customize/outfits" className={`flex items-center px-4 py-2 rounded-lg hover:bg-gray-100 ${isActive("/customize/outfits") ? "font-bold text-black" : "text-gray-700"}`}>
             <FontAwesomeIcon icon={faCat} className="text-orange-500 mr-2 w-5 h-5" />
             Harimau Saya
             <span className="ml-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">Lvl 5</span>
