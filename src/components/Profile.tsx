@@ -13,10 +13,7 @@ const Profile = () => {
 
           <div className="flex flex-col items-center mb-6">
             <div className="w-24 h-24 bg-light-orange rounded-full flex items-center justify-center mb-4">
-              <FontAwesomeIcon
-                icon={faUser}
-                className="text-primary-orange text-4xl"
-              />
+              <FontAwesomeIcon icon={faUser} className="text-primary-orange text-4xl" />
             </div>
             <h3 className="text-lg font-bold">Angela Melia</h3>
             <p className="text-gray-500 text-sm">angela.melia@example.com</p>
@@ -30,9 +27,7 @@ const Profile = () => {
             </div>
 
             <span className="flex-grow">Harimau Saya</span>
-            <span className="bg-secondary-orange text-white text-xs px-2 py-1 rounded-full">
-              Lvl 5
-            </span>
+            <span className="bg-secondary-orange text-white text-xs px-2 py-1 rounded-full">Lvl 5</span>
           </div>
 
           <div className="mb-4">
@@ -41,10 +36,7 @@ const Profile = () => {
               <span>350/500</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div
-                className="bg-secondary-orange rounded-full h-2"
-                style={{ width: "70%" }}
-              ></div>
+              <div className="bg-secondary-orange rounded-full h-2" style={{ width: "70%" }}></div>
             </div>
           </div>
 
@@ -57,9 +49,7 @@ const Profile = () => {
             </button>
           </Link>
           <Link href="/auth/sign-in">
-            <button className="w-full bg-primary-orange text-white py-3 rounded-md flex items-center justify-center hover:bg-secondary-orange">
-              Keluar
-            </button>
+            <button className="w-full bg-primary-orange text-white py-3 rounded-md flex items-center justify-center hover:bg-secondary-orange">Keluar</button>
           </Link>
         </div>
       </div>

@@ -43,7 +43,7 @@ export default function Outfits() {
           const isLocked = outfit.image === "/locked.png";
 
           return (
-            <div key={outfit.id} className={`aspect-square border-2 rounded-lg relative ${isLocked ? "cursor-not-allowed" : "cursor-pointer hoverable-box"}`}>
+            <div key={outfit.id} className={`aspect-square border-2 border-gray-200 rounded-lg relative ${isLocked ? "cursor-not-allowed" : "cursor-pointer hoverable-box"}`}>
               {outfit.requiredLevel && <div className="absolute top-2 right-2 bg-primary-orange text-white text-xs px-2 py-1 rounded-full">Lvl {outfit.requiredLevel}</div>}
               <div className="flex items-center justify-center">
                 <Image src={outfit.image} alt="My Tiger" width={150} height={150} />

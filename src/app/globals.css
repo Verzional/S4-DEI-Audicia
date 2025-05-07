@@ -99,7 +99,6 @@ body {
 }
 
 .hoverable-box {
-  border-color: #808080;
   transition: border-color 0.2s ease;
 }
 

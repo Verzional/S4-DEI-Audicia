@@ -15,7 +15,7 @@ export default function CustomizeLayout({ children }: { children: React.ReactNod
         <div className="flex flex-col lg:flex-row items-stretch gap-6">
           <Tiger />
           <div className="w-full lg:w-3/4">
-            <div className="bg-white rounded-lg border border-gray-150 p-6">
+            <div className="bg-white rounded-lg border border-gray-200 p-6">
               {children}
               <div className="flex justify-end">
                 <Link href="/scenarios">

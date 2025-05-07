@@ -58,7 +58,7 @@ export default function Accessories() {
           const isLocked = accessory.image === "/locked.png";
 
           return (
-            <div key={accessory.id} className={`aspect-square border-2 rounded-lg relative ${isLocked ? "cursor-not-allowed" : "cursor-pointer hoverable-box"}`}>
+            <div key={accessory.id} className={`aspect-square border-2 border-gray-200 rounded-lg relative ${isLocked ? "cursor-not-allowed" : "cursor-pointer hoverable-box"}`}>
               {accessory.requiredLevel && <div className="absolute top-2 right-2 bg-primary-orange text-white text-xs px-2 py-1 rounded-full">Lvl {accessory.requiredLevel}</div>}
               <div className="flex items-center justify-center">
                 <Image src={accessory.image} alt="My Tiger" width={150} height={150} />

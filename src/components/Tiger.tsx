@@ -5,7 +5,7 @@ const Tiger = () => {
     <>
       {/* Left Column - My Tiger */}
       <div className="w-full lg:w-1/4">
-        <div className="bg-white rounded-lg border border-gray-150 p-6">
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h2 id="tigerName" className="text-xl font-bold text-gray-900 mb-1">
             Lantaro
           </h2>
