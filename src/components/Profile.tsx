@@ -1,8 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCat, faCog, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
 const Profile = () => {
+  const [fullName, setFullName] = useState("");
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("fullName");
+    if (storedName) setFullName(storedName);
+  }, []);
+
   return (
     <>
       {/* Left Column - Profile */}
@@ -15,7 +25,7 @@ const Profile = () => {
             <div className="w-24 h-24 bg-light-orange rounded-full flex items-center justify-center mb-4">
               <FontAwesomeIcon icon={faUser} className="text-primary-orange text-4xl" />
             </div>
-            <h3 className="text-lg font-bold">Angela Melia</h3>
+            <h3 className="text-lg font-bold">{fullName || "Angela Melia"}</h3>
             <p className="text-gray-500 text-sm">angela.melia@example.com</p>
           </div>
 
