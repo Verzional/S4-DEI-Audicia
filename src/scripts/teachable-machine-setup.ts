@@ -9,7 +9,7 @@ import fetch from "node-fetch";
  */
 
 // Configuration
-const MODEL_URL = "YOUR_TEACHABLE_MACHINE_MODEL_URL";
+const MODEL_URL = "https://teachablemachine.withgoogle.com/models/FKObLjxJw/";
 const OUTPUT_DIR = path.join(
   process.cwd(),
   "public/models/filler-detection-model"

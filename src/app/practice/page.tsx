@@ -81,14 +81,26 @@ export default function Practice() {
     }
   };
 
+  const handleReset = () => {
+    setMessages([]); // Clear the conversation
+    setIsListening(false); // Optional: stop listening
+    if (recognitionRef.current) {
+      recognitionRef.current.stop(); // Stop any ongoing recognition
+    }
+    // Optional: Scroll chat to top
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = 0;
+    }
+  };
+
   const generateAIResponse = (userMessage: string) => {
-    if (userMessage.toLowerCase().includes("tell me about yourself")) {
-      return "I am an AI assistant here to help you prepare for job interviews.";
+    if (userMessage.toLowerCase().includes("halo")) {
+      return "Halo juga, apa saja kelebihan dan kekurangan mu?";
     }
-    if (userMessage.toLowerCase().includes("how are you")) {
-      return "I am doing great, thank you for asking!";
+    if (userMessage.toLowerCase().includes("Kelebihan")) {
+      return "Kelebihan mu sangat baik, tetapi kekurangan mu juga harus diperbaiki.";
     }
-    return "Can you please elaborate?";
+    return "Apakah bisa Anda menjelaskan lebih lanjut?";
   };
 
   return (
@@ -96,9 +108,13 @@ export default function Practice() {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold mb-2">Latihan Wawancara Pekerjaan</h2>
         <div className="flex items-center space-x-4">
-          <button className="text-gray-600 hover:text-gray-500">
+          <button
+            className="text-gray-600 hover:text-gray-500"
+            onClick={handleReset}
+          >
             <FontAwesomeIcon icon={faRedo} className="w-10 h-10" />
           </button>
+
           <Link href="/practice/statistics">
             <button className="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-md">
               Akhiri Sesi
