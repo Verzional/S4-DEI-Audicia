@@ -7,7 +7,6 @@
   --color-secondary-orange: #f97316;
   --color-semi-light-orange: #ffedd5;
   --color-light-orange: #fff7ed;
-  
 }
 
 @theme inline {
@@ -59,7 +58,7 @@ body {
 }
 
 .gradient-background {
-  background: linear-gradient(360deg, #fff7ed 0%, #ffedd5 30%,  #f97416c7 100%);
+  background: linear-gradient(360deg, #fff7ed 0%, #ffedd5 30%, #f97416c7 100%);
 }
 
 .progress-circle {
@@ -130,4 +129,15 @@ body {
 }
 .faq-icon.active {
   transform: rotate(180deg);
+}
+
+.welcome-body {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }

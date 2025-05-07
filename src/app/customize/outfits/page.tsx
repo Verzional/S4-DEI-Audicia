@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Outfit = {
   id: number;
@@ -27,33 +28,31 @@ const outfits: Outfit[] = [
 
 export default function Outfits() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-      {outfits.map((outfit) => (
-        <div
-          key={outfit.id}
-          className={`aspect-square border-2 rounded-lg ${
-            outfit.requiredLevel
-              ? "hover:cursor-not-allowed relative"
-              : "hover:cursor-pointer"
-          } hoverable-box`}
-        >
-          {outfit.requiredLevel && (
-            <div className="absolute top-2 right-2 bg-primary-orange text-white text-xs px-2 py-1 rounded-full">
-              Lvl {outfit.requiredLevel}
+    <>
+      <div className="flex border-b border-gray-200 mb-8">
+        <Link href="/customize/outfits" className="px-4 py-2 font-medium text-black border-b-2 border-primary-orange">
+          Pakaian
+        </Link>
+
+        <Link href="/customize/accessories" className="px-4 py-2 text-gray-500 hover:text-black">
+          Aksesoris
+        </Link>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+        {outfits.map((outfit) => {
+          const isLocked = outfit.image === "/locked.png";
+
+          return (
+            <div key={outfit.id} className={`aspect-square border-2 rounded-lg relative ${isLocked ? "cursor-not-allowed" : "cursor-pointer hoverable-box"}`}>
+              {outfit.requiredLevel && <div className="absolute top-2 right-2 bg-primary-orange text-white text-xs px-2 py-1 rounded-full">Lvl {outfit.requiredLevel}</div>}
+              <div className="flex items-center justify-center">
+                <Image src={outfit.image} alt="My Tiger" width={150} height={150} />
+              </div>
+              <p className={`text-center font-medium ${isLocked ? "text-gray-300" : "text-black"}`}>{outfit.name}</p>
             </div>
-          )}
-          <div className="flex items-center justify-center">
-            <Image src={outfit.image} alt="My Tiger" width={150} height={150} />
-          </div>
-          <p
-            className={`text-center font-medium ${
-              outfit.requiredLevel ? "text-gray-300" : "text-black"
-            }`}
-          >
-            {outfit.name}
-          </p>
-        </div>
-      ))}
-    </div>
+          );
+        })}
+      </div>
+    </>
   );
 }

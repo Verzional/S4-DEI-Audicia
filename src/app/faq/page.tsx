@@ -16,8 +16,7 @@ const faqs = [
       "Ya, data latihan Anda sepenuhnya bersifat pribadi dan aman. Kami menggunakan enkripsi standar industri untuk melindungi informasi Anda, dan kami tidak pernah membagikan sesi latihan atau data pribadi Anda dengan pihak ketiga. Anda memiliki kendali penuh atas data Anda dan dapat menghapusnya kapan saja dari pengaturan akun Anda.",
   },
   {
-    question:
-      "Dapatkah saya mempraktikkan skenario khusus untuk industri saya?",
+    question: "Dapatkah saya mempraktikkan skenario khusus untuk industri saya?",
     answer:
       "Audicia menawarkan berbagai macam skenario khusus industri untuk latihan. Baik Anda bekerja di bidang teknologi, kesehatan, pendidikan, keuangan, atau bidang lainnya, Anda dapat memilih skenario yang relevan dengan konteks profesional Anda. Anda juga dapat membuat skenario khusus yang disesuaikan dengan kebutuhan spesifik Anda.",
   },
@@ -32,8 +31,7 @@ const faqs = [
       "Audicia membutuhkan koneksi internet untuk fungsionalitas penuh, karena pemrosesan AI kami dilakukan di cloud. Namun, kami menawarkan mode offline terbatas yang memungkinkan Anda merekam sesi latihan saat Anda tidak terhubung. Sesi ini akan dianalisis dan umpan balik akan diberikan setelah Anda terhubung kembali ke internet.",
   },
   {
-    question:
-      "Apakah ada batasan berapa banyak sesi latihan yang dapat saya lakukan?",
+    question: "Apakah ada batasan berapa banyak sesi latihan yang dapat saya lakukan?",
     answer:
       "Jumlah sesi latihan yang tersedia tergantung pada paket langganan Anda. Pengguna gratis dapat mengakses hingga 5 sesi latihan per bulan. Pelanggan premium memiliki akses tak terbatas ke sesi latihan, bersama dengan fitur tambahan seperti analitik tingkat lanjut, rencana peningkatan yang dipersonalisasi, dan akses prioritas ke skenario baru.",
   },
@@ -55,45 +53,27 @@ export default function FAQ() {
     <>
       {/* Main Content */}
       <div className="mb-8">
-        <h2 className="text-3xl font-bold mb-2">
-          Pertanyaan yang Sering Diajukan
-        </h2>
-        <p className="text-gray-600">
-          Temukan jawaban atas pertanyaan umum tentang Audicia
-        </p>
+        <h2 className="text-3xl font-bold mb-2">Pertanyaan yang Sering Diajukan</h2>
+        <p className="text-gray-600">Temukan jawaban atas pertanyaan umum tentang Audicia</p>
       </div>
 
       <div className="border border-gray-200 rounded-lg divide-y divide-gray-200">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="p-6 hover:bg-light-orange transition-colors"
-          >
-            <button
-              className="w-full flex justify-between items-center text-left focus:outline-none"
-              onClick={() => toggleFAQ(index)}
-              aria-expanded={activeIndex === index}
-            >
-              <h4 className="font-medium">{faq.question}</h4>
-              <span
-                className={`text-gray-400 transform transition-transform ${
-                  activeIndex === index ? "rotate-180" : ""
-                }`}
-              >
-                <FontAwesomeIcon icon={faChevronDown} className="" />
-              </span>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                activeIndex === index
-                  ? "max-h-screen mt-4 opacity-100"
-                  : "max-h-0 opacity-0"
-              }`}
-            >
-              <p className="text-gray-600">{faq.answer}</p>
+        {faqs.map((faq, index) => {
+          const isActive = activeIndex === index;
+          return (
+            <div key={index} className={`p-6 transition-colors ${isActive ? "bg-orange-100" : "hover:bg-orange-100 hover:underline"}`}>
+              <button className="w-full flex justify-between items-center text-left focus:outline-none" onClick={() => toggleFAQ(index)} aria-expanded={isActive}>
+                <h4 className="font-medium">{faq.question}</h4>
+                <span className={`text-gray-400 transform transition-transform ${isActive ? "rotate-180" : ""}`}>
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </span>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${isActive ? "max-h-screen mt-4 opacity-100" : "max-h-0 opacity-0"}`}>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </>
   );
